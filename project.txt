@@ -1,0 +1,110 @@
+function renderPost(post) {
+  // Create the post div
+  const postDiv = document.createElement("div");
+  postDiv.className = "post";
+
+  // Create the post header
+  const postHeader = document.createElement("div");
+  postHeader.className = "post-header";
+
+  // Create the user avatar
+  const userAvatar = document.createElement("img");
+  userAvatar.src = post.user.avatar;
+  userAvatar.alt = "User Avatar";
+  userAvatar.className = "user-avatar";
+
+  // Create the user info section
+  const userInfo = document.createElement("div");
+  userInfo.className = "user-info";
+
+  // Create the user name
+  const userName = document.createElement("p");
+  userName.className = "user-name";
+  userName.textContent = post.user.name;
+
+  // Create the post timestamp
+  const postTimestamp = document.createElement("p");
+  postTimestamp.className = "post-timestamp";
+  postTimestamp.textContent = post.timestamp;
+
+  // Append the user name and post timestamp to the user info section
+  userInfo.appendChild(userName);
+  userInfo.appendChild(postTimestamp);
+
+  // Append the user avatar and user info section to the post header
+  postHeader.appendChild(userAvatar);
+  postHeader.appendChild(userInfo);
+
+  // Create the post content
+  const postContent = document.createElement("div");
+  postContent.className = "post-content";
+
+  // Create the post text
+  const postText = document.createElement("p");
+  postText.className = "post-text";
+  postText.textContent = post.text;
+
+  // Create the post image
+  const postImage = document.createElement("img");
+  postImage.src = post.image;
+  postImage.alt = "Post Image";
+  postImage.className = "post-image";
+
+  // Append the post text and post image to the post content
+  postContent.appendChild(postText);
+  postContent.appendChild(postImage);
+
+  // Create the post footer
+  const postFooter = document.createElement("div");
+  postFooter.className = "post-footer";
+
+  // Create the likes section
+  const likes = document.createElement("div");
+  likes.className = "likes";
+
+  // Create the like icon
+  const likeIcon = document.createElement("img");
+  likeIcon.src = "like-icon.png";
+  likeIcon.alt = "Like Icon";
+  likeIcon.className = "like-icon";
+
+  // Create the like count
+  const likeCount = document.createElement("p");
+  likeCount.className = "like-count";
+  likeCount.textContent = post.likes + " likes";
+
+  // Append the like icon and like count to the likes section
+  likes.appendChild(likeIcon);
+  likes.appendChild(likeCount);
+
+  // Create the comments section
+  const comments = document.createElement("div");
+  comments.className = "comments";
+
+  // Create the comment icon
+  const commentIcon = document.createElement("img");
+  commentIcon.src = "comment-icon.png";
+  commentIcon.alt = "Comment Icon";
+  commentIcon.className = "comment-icon";
+
+  // Create the comment count
+  const commentCount = document.createElement("p");
+  commentCount.className = "comment-count";
+  commentCount.textContent = post.comments.length + " comments";
+
+  // Append the comment icon and comment count to the comments section
+  comments.appendChild(commentIcon);
+  comments.appendChild(commentCount);
+
+  // Append the likes section and comments section to the post footer
+  postFooter.appendChild(likes);
+  postFooter.appendChild(comments);
+
+  // Append the post header, post content, and post footer to the post div
+  postDiv.appendChild(postHeader);
+  postDiv.appendChild(postContent);
+  postDiv.appendChild(postFooter);
+
+  // Return the post div
+  return postDiv;
+}
